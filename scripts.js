@@ -44,17 +44,18 @@ button.addEventListener("click", () => {
 
   console.log(textarea.value); // get a vlaue from textarea and after click on the button,display it on the console.
 
-  const lowercaseSplit = textarea.value.toLowerCase().split("_");
-  console.log(lowercaseSplit); // (2) ['underscore', 'case'] => underscoreCase
+  BackSlashNSplit = textarea.value.toLowerCase().split("\n");
+  console.log(BackSlashNSplit);
 
-  const uppercaseFirstChar = lowercaseSplit[1].replace(
-    lowercaseSplit[1].slice(0, 1), // only first char would be selected!
-    lowercaseSplit[1].slice(0, 1).toUpperCase() // only first char would be selected and first char would be replaced with big char!
-  );
-  console.log(uppercaseFirstChar);
+  const collectedWords = [];
 
-  const finalWord = [lowercaseSplit[0], uppercaseFirstChar].join("");
-  console.log(finalWord);
+  for (const word of BackSlashNSplit) {
+    BackSlashNSplit = word.trim();
+    // console.log(BackSlashNSplit);
+
+    collectedWords.push(BackSlashNSplit);
+  }
+  console.log(collectedWords);
 });
 /* 
 underscore_case
