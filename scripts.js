@@ -37,7 +37,7 @@ const text = document.querySelector("textarea").value;
 const textarea = document.querySelector("textarea");
 const button = document.querySelector("button");
 
-// underscore_case
+// underscore_case => underscoreCase
 button.addEventListener("click", () => {
   // console.log("Hallo");
   textarea.textContent = "Hallo"; // get the Hello from here and after click the button, will publish it in textarea!
@@ -47,5 +47,19 @@ button.addEventListener("click", () => {
   const lowercaseSplit = textarea.value.toLowerCase().split("_");
   console.log(lowercaseSplit); // (2) ['underscore', 'case'] => underscoreCase
 
-  
+  const uppercaseFirstChar = lowercaseSplit[1].replace(
+    lowercaseSplit[1].slice(0, 1), // only first char would be selected!
+    lowercaseSplit[1].slice(0, 1).toUpperCase() // only first char would be selected and first char would be replaced with big char!
+  );
+  console.log(uppercaseFirstChar);
+
+  const finalWord = [lowercaseSplit[0], uppercaseFirstChar].join("");
+  console.log(finalWord);
 });
+/* 
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+*/
