@@ -56,6 +56,11 @@ button.addEventListener("click", () => {
   for (const word of BackSlashNSplit) {
     // 2. doing trimming and split() methods to create an array and put every word consisting of two sub words separated with a comma!
     BackSlashNSplit = word.trim().split("_");
+
+    // WE CAN ALSO DO THE DESTRCUTURING INSTEAD OF USING THE INDEXES:
+    // 2.a
+    const [first, second] = word.trim().split("_");
+
     // console.log(BackSlashNSplit);
 
     // 3. We choose the second sub word!
@@ -70,8 +75,14 @@ button.addEventListener("click", () => {
     const c = [BackSlashNSplit[0], b].join("");
     // console.log(c);
 
+    // 5.a USING DESTRUCTURING INSTEAD OF DEFINING VARIABLE USING INDEXES:
+    const output = [
+      first,
+      second.replace(second[0], second[0].toUpperCase()),
+    ].join("");
+
     // 6. we need to put all of them again in an array to use it for the next section, that's why we use push method here!
-    collectedWords.push(c);
+    collectedWords.push(output);
   }
   // console.log(collectedWords);
 
