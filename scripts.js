@@ -44,27 +44,33 @@ button.addEventListener("click", () => {
 
   // console.log(textarea.value); // get a vlaue from textarea and after click on the button,display it on the console.
 
-  //1. first of all, to separate the strings in textarea using \n with split() method!
+  // when there is no input in the textarea, it will return and doesn't go inside the code!
   if (textarea.value === "") return;
 
+  // 1. first of all, to separate the strings in textarea using \n with split() method!
   BackSlashNSplit = textarea.value.toLowerCase().split("\n");
   // console.log(BackSlashNSplit);
 
   let collectedWords = [];
 
   for (const word of BackSlashNSplit) {
+    // 2. doing trimming and split() methods to create an array and put every word consisting of two sub words separated with a comma!
     BackSlashNSplit = word.trim().split("_");
     // console.log(BackSlashNSplit);
 
+    // 3. We choose the second sub word!
     const a = BackSlashNSplit[1];
     // console.log(a);
 
+    // 4. and making only the first letter of the second sub word capital!
     const b = a.replace(a[0], a[0].toUpperCase());
     // console.log(b);
 
+    // 5. and now, joining the first sub word and the second sub word together using join('') completely with nothing in between. Now, They are not array anymore, rather, separated string!
     const c = [BackSlashNSplit[0], b].join("");
     // console.log(c);
 
+    // 6. we need to put all of them again in an array to use it for the next section, that's why we use push method here!
     collectedWords.push(c);
   }
   // console.log(collectedWords);
