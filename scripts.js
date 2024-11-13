@@ -106,6 +106,9 @@ button.addEventListener("click", () => {
     const c = [output, b].join("");
     // At the end, we have to join the word(el) and also the the complete tick sign with nothing in the paranthesis for join() method! and also join() method convert the array to the string!
     console.log(c);
+
+    // OR THE SUGGESTED CODE FROM JONAS FOR THIS PART:
+    // console.log(`${output.padEnd(20, " ")}${"✅".repeat(i + 1)}`);
     /* 
    underscoreCase          ✅
    firstName               ✅✅
