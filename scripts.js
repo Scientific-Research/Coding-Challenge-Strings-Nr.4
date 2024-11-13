@@ -42,18 +42,34 @@ button.addEventListener("click", () => {
   // console.log("Hallo");
   textarea.textContent = "Hallo"; // get the Hello from here and after click the button, will publish it in textarea!
 
-  console.log(textarea.value); // get a vlaue from textarea and after click on the button,display it on the console.
+  // console.log(textarea.value); // get a vlaue from textarea and after click on the button,display it on the console.
 
   BackSlashNSplit = textarea.value.toLowerCase().split("\n");
   console.log(BackSlashNSplit);
 
-  const collectedWords = [];
+  /* 
+  underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+ */
+  let collectedWords = [];
 
   for (const word of BackSlashNSplit) {
-    BackSlashNSplit = word.trim();
-    // console.log(BackSlashNSplit);
+    BackSlashNSplit = word.trim().split("_");
+    console.log(BackSlashNSplit);
 
-    collectedWords.push(BackSlashNSplit);
+    const a = BackSlashNSplit[1];
+    console.log(a);
+
+    const b = a.replace(a[0], a[0].toUpperCase());
+    console.log(b);
+
+    const c = [BackSlashNSplit[0], b].join("");
+    console.log(c);
+
+    collectedWords.push(c);
   }
   console.log(collectedWords);
 });
@@ -64,3 +80,12 @@ Some_Variable
   calculate_AGE
 delayed_departure
 */
+
+/* 
+SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+ */
