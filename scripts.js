@@ -48,14 +48,14 @@ button.addEventListener("click", () => {
   if (textarea.value === "") return;
 
   // 1. first of all, to separate the strings in textarea using \n with split() method!
-  BackSlashNSplit = textarea.value.toLowerCase().split("\n");
+  let rowData = textarea.value.toLowerCase().split("\n");
   // console.log(BackSlashNSplit);
 
   let collectedWords = [];
 
-  for (const word of BackSlashNSplit) {
+  for (const [i, word] of rowData.entries()) {
     // 2. doing trimming and split() methods to create an array and put every word consisting of two sub words separated with a comma!
-    BackSlashNSplit = word.trim().split("_");
+    rowData = word.trim().split("_");
 
     // WE CAN ALSO DO THE DESTRCUTURING INSTEAD OF USING THE INDEXES:
     // 2.a
@@ -64,16 +64,16 @@ button.addEventListener("click", () => {
     // console.log(BackSlashNSplit);
 
     // 3. We choose the second sub word!
-    const a = BackSlashNSplit[1];
+    const a = rowData[1];
     // console.log(a);
 
     // 4. and making only the first letter of the second sub word capital!
-    const b = a.replace(a[0], a[0].toUpperCase());
+    const b1 = a.replace(a[0], a[0].toUpperCase());
     // console.log(b);
 
     // 5. and now, joining the first sub word and the second sub word together using join('') completely with nothing in between. Now, They are not array anymore, rather, separated string!
-    const c = [BackSlashNSplit[0], b].join("");
-    // console.log(c);
+    const c1 = [rowData[0], b1].join("");
+    // console.log(c1);
 
     // 5.a USING DESTRUCTURING INSTEAD OF DEFINING VARIABLE USING INDEXES:
     const output = [
@@ -83,15 +83,14 @@ button.addEventListener("click", () => {
 
     // 6. we need to put all of them again in an array to use it for the next section, that's why we use push method here!
     collectedWords.push(output);
-  }
-  // console.log(collectedWords);
+    // console.log(collectedWords);
 
-  for (const [i, el] of collectedWords.entries()) {
+    // for (const [i, el] of collectedWords.entries()) {
     // The number 25 is an arbitrary number to bring all the tick signs in one column! It means the whole distance is consist of the whole word plus the space in between till the green tick, that's why all of them are in an equal distance from green tick!
     // IF WE REMOVE THE Number(el.length), THE 25 SPACES WILL NOT INCLUDE THE WORD, RATHER IT WOULD BE ONLY FROM THE LAST LETTER TILL THE TICK SIGN!
     // const b = "✅".padStart(25, " ");
     const b = "✅"
-      .padStart(25 - Number(el.length), " ")
+      .padStart(25 - Number(output.length), " ")
       /* 
     /--------25 spaces-------/
     underscoreCase          ✅
@@ -101,18 +100,19 @@ button.addEventListener("click", () => {
     delayedDeparture        ✅
     */
 
-      .padEnd(25 - Number(el.length) + i, "✅");
+      .padEnd(25 - Number(output.length) + i, "✅");
     // The i here will add 0 to 4 tick signs to the current tick sign, because it takes the indexes from 0 to 4 and it is ideal for our purpose here!
 
-    const c = [el, b].join("");
+    const c = [output, b].join("");
     // At the end, we have to join the word(el) and also the the complete tick sign with nothing in the paranthesis for join() method! and also join() method convert the array to the string!
     console.log(c);
     /* 
-    underscoreCase          ✅
-    firstName               ✅✅
-    someVariable            ✅✅✅
-    calculateAge            ✅✅✅✅
-    delayedDeparture        ✅✅✅✅✅
-    */
+   underscoreCase          ✅
+   firstName               ✅✅
+   someVariable            ✅✅✅
+   calculateAge            ✅✅✅✅
+   delayedDeparture        ✅✅✅✅✅
+   */
+    // }
   }
 });
