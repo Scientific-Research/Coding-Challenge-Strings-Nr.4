@@ -47,13 +47,6 @@ button.addEventListener("click", () => {
   BackSlashNSplit = textarea.value.toLowerCase().split("\n");
   // console.log(BackSlashNSplit);
 
-  /* 
-  underscore_case
- first_name
-Some_Variable 
-  calculate_AGE
-delayed_departure
- */
   let collectedWords = [];
 
   for (const word of BackSlashNSplit) {
@@ -74,38 +67,11 @@ delayed_departure
   // console.log(collectedWords);
 
   for (const [i, el] of collectedWords.entries()) {
-    // console.log(el, i + 1);
-    // console.log(el.padEnd(Number(el.length) + i + 1, " öö"));
-    // console.log(el.padEnd(Number(el.length) + i + 1, "✅"));
-    // console.log(el.padEnd(Number(el.length) + i + 1, "✅"));
-    // const a = el.padEnd(16 - Number(el.length) + i + 1, "-----");
     const b = "✅"
       .padStart(25 - Number(el.length), " ")
       .padEnd(25 - Number(el.length) + i, "✅");
-    // const a = "✅".padEnd(i - 1, "✅");
 
-    // console.log(a);
-
-    // const c = [el, b, a].join("");
     const c = [el, b].join("");
     console.log(c);
-    // console.log(el.padEnd(Number(el.length) + 5, " ").padEnd(1, "✅"));
-    // console.log(el.padStart(Number(16 - el.length) + 5, " "));
   }
 });
-/* 
-underscore_case
- first_name
-Some_Variable 
-  calculate_AGE
-delayed_departure
-*/
-
-/* 
-SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
-underscoreCase      ✅
-firstName           ✅✅
-someVariable        ✅✅✅
-calculateAge        ✅✅✅✅
-delayedDeparture    ✅✅✅✅✅
- */
