@@ -45,7 +45,7 @@ button.addEventListener("click", () => {
   // console.log(textarea.value); // get a vlaue from textarea and after click on the button,display it on the console.
 
   BackSlashNSplit = textarea.value.toLowerCase().split("\n");
-  console.log(BackSlashNSplit);
+  // console.log(BackSlashNSplit);
 
   /* 
   underscore_case
@@ -58,20 +58,30 @@ delayed_departure
 
   for (const word of BackSlashNSplit) {
     BackSlashNSplit = word.trim().split("_");
-    console.log(BackSlashNSplit);
+    // console.log(BackSlashNSplit);
 
     const a = BackSlashNSplit[1];
-    console.log(a);
+    // console.log(a);
 
     const b = a.replace(a[0], a[0].toUpperCase());
-    console.log(b);
+    // console.log(b);
 
     const c = [BackSlashNSplit[0], b].join("");
-    console.log(c);
+    // console.log(c);
 
     collectedWords.push(c);
   }
-  console.log(collectedWords);
+  // console.log(collectedWords);
+
+  for (const [i, el] of collectedWords.entries()) {
+    // console.log(el, i + 1);
+    // console.log(el.padEnd(Number(el.length) + i + 1, " öö"));
+    // console.log(el.padEnd(Number(el.length) + i + 1, "✅"));
+    const a = "✅".padStart(i + 1, "✅");
+    console.log(a);
+    // console.log(el.padEnd(Number(el.length) + 5, " ").padEnd(1, "✅"));
+    // console.log(el.padStart(Number(16 - el.length) + 5, " "));
+  }
 });
 /* 
 underscore_case
