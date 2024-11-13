@@ -40,9 +40,12 @@ const button = document.querySelector("button");
 // underscore_case => underscoreCase
 button.addEventListener("click", () => {
   // console.log("Hallo");
-  textarea.textContent = "Hallo"; // get the Hello from here and after click the button, will publish it in textarea!
+  // textarea.textContent = "Hallo"; // get the Hello from here and after click the button, will publish it in textarea!
 
   // console.log(textarea.value); // get a vlaue from textarea and after click on the button,display it on the console.
+
+  //1. first of all, to separate the strings in textarea using \n with split() method!
+  if (textarea.value === "") return;
 
   BackSlashNSplit = textarea.value.toLowerCase().split("\n");
   // console.log(BackSlashNSplit);
