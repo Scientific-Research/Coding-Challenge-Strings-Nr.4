@@ -76,11 +76,32 @@ button.addEventListener("click", () => {
   // console.log(collectedWords);
 
   for (const [i, el] of collectedWords.entries()) {
+    // The number 25 is an arbitrary number to bring all the tick signs in one column! It means the whole distance is consist of the whole word plus the space in between till the green tick, that's why all of them are in an equal distance from green tick!
+    // IF WE REMOVE THE Number(el.length), THE 25 SPACES WILL NOT INCLUDE THE WORD, RATHER IT WOULD BE ONLY FROM THE LAST LETTER TILL THE TICK SIGN!
+    // const b = "✅".padStart(25, " ");
     const b = "✅"
       .padStart(25 - Number(el.length), " ")
+      /* 
+    /--------25 spaces-------/
+    underscoreCase          ✅
+    firstName               ✅
+    someVariable            ✅
+    calculateAge            ✅
+    delayedDeparture        ✅
+    */
+
       .padEnd(25 - Number(el.length) + i, "✅");
+    // The i here will add 0 to 4 tick signs to the current tick sign, because it takes the indexes from 0 to 4 and it is ideal for our purpose here!
 
     const c = [el, b].join("");
+    // At the end, we have to join the word(el) and also the the complete tick sign with nothing in the paranthesis for join() method! and also join() method convert the array to the string!
     console.log(c);
+    /* 
+    underscoreCase          ✅
+    firstName               ✅✅
+    someVariable            ✅✅✅
+    calculateAge            ✅✅✅✅
+    delayedDeparture        ✅✅✅✅✅
+    */
   }
 });
