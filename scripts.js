@@ -77,8 +77,15 @@ delayed_departure
     // console.log(el, i + 1);
     // console.log(el.padEnd(Number(el.length) + i + 1, " öö"));
     // console.log(el.padEnd(Number(el.length) + i + 1, "✅"));
-    const a = "✅".padStart(i + 1, "✅");
-    console.log(a);
+    // console.log(el.padEnd(Number(el.length) + i + 1, "✅"));
+    // const a = el.padEnd(16 - Number(el.length) + i + 1, "-----");
+    const b = "✅".padStart(25 - Number(el.length), " ");
+    const a = "✅".padStart(i, "✅");
+
+    // console.log(a);
+
+    const c = [el, b, a].join("");
+    console.log(c);
     // console.log(el.padEnd(Number(el.length) + 5, " ").padEnd(1, "✅"));
     // console.log(el.padStart(Number(16 - el.length) + 5, " "));
   }
